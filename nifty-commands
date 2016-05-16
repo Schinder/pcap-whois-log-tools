@@ -1,0 +1,9 @@
+list of nifty commands...
+made 23 feb 2016...
+
+root@monokuma:~# tcpdump -r log.pcap -nn 'tcp[13]=0x12' | cut -d" " -f5 | sort -u | sed 's/:$//' | rev | cut -d"." -f2- | rev >> src-ips-`date +%Y-%m-%d`.txt
+
+root@monokuma:/home/godfather/Desktop# for x in $(cat src-ips-23feb2016.txt); do echo $x >> whois`date +%Y-%m-%d`.txt; echo -e '\n' >> whois`date +%Y-%m-%d`.txt; whois $x | grep 'rganization\|ddress\|ity\|tate\|ostal\|ountry\|erson\|hone' >> whois`date +%Y-%m-%d`.txt; echo -e '\n' >> whois`date +%Y-%m-%d`.txt; done
+
+
+
