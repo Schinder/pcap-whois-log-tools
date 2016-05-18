@@ -7,10 +7,13 @@
 # It only displays certain data I felt like looking at, and places his data into a text file...
 # Created by Adam Schinder
 # Date: 23 Feb 2016
+# Edit: 18 May 2016 - added the kill line to end the day's logging...
 
 PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 cd /root/info
+
+kill $(ps -aux | grep tcpdump | cut -d" " -f7)
 
 tcpdump -r /root/pcaps/eth0-`date +%Y-%m-%d`.pcap -nn 'tcp[13]=0x12' | cut -d" " -f5 | sed 's/:$//' | rev | cut -d"." -f2- | rev | sort -u >> src-ips-`date +%Y-%m-%d`.txt
 

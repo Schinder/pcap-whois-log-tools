@@ -7,6 +7,7 @@
 # This, in effect, keeps the newest thirty packet captures in the folder.
 # Created by Adam Schinder
 # Date: 23 Feb 2016
+# Edit: 18 May 2016 - Keeping the packet count to 2,000,000 in case of a DOS attack...
 
 PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
